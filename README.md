@@ -1,24 +1,23 @@
-## V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本
-
-> 感谢 JetBrains 提供的非商业开源软件开发授权
+## V2Ray Nginx-based vmess+ws+tls one-click installation script
 
 > Thanks for non-commercial open source development authorization by JetBrains
-### 关于 VMess MD5 认证信息 淘汰机制
-> 自 2022 年 1 月 1 日起，服务器端将默认禁用对于 MD5 认证信息 的兼容。任何使用 MD5 认证信息的客户端将无法连接到禁用 VMess MD5 认证信息的服务器端。
 
-受到影响的用户，我们强烈建议您重新安装，并设置alterid为0（默认值目前已经修改为0），不再使用 VMess MD5 认证机制
-如果您不想重新安装，您可以通过使用 https://github.com/KukiSa/VMess-fAEAD-disable 强制开启对于 MD5 认证机制的兼容
+### About VMess MD5 Authentication Information Phase-out Mechanism
+> Starting January 1, 2022, compatibility with MD5 authentication messages will be disabled on the server side by default. Any client using MD5 authentication information will not be able to connect to a server with VMess MD5 authentication information disabled.
 
-### Telegram 群组
-* telegram 交流群:https://t.me/wulabing_v2ray 
-* telegram 更新公告频道：https://t.me/wulabing_channel
+For affected users, we strongly recommend that you reinstall and set the alterid to 0 (the default value has now been changed to 0) and no longer use the VMess MD5 authentication mechanism!
+If you do not want to reinstall, you can force compatibility with the MD5 authentication mechanism by using https://github.com/KukiSa/VMess-fAEAD-disable
 
-### 准备工作
-* 准备一个域名，并将A记录添加好。
-* [V2ray官方说明](https://www.v2ray.com/)，了解 TLS WebSocket 及 V2ray 相关信息
-* 安装好 wget
+### Telegram groups
+* telegram exchange group:https://t.me/wulabing_v2ray 
+* telegram update announcement channel: https://t.me/wulabing_channel
 
-### 安装/更新方式（h2 和 ws 版本已合并）
+### Preparation
+* Prepare a domain name and add the A record to it.
+* [V2ray official instructions](https://www.v2ray.com/) for TLS WebSocket and V2ray related information
+* Install wget
+
+### Installation/update method (h2 and ws versions are merged)
 Vmess+websocket+TLS+Nginx+Website
 ```
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
@@ -29,83 +28,86 @@ VLESS+websocket+TLS+Nginx+Website
 wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/dev/install.sh" && chmod +x install.sh && bash install.sh
 ```
 
-### 注意事项
-* 如果你不了解脚本中各项设置的具体含义，除域名外，请使用脚本提供的默认值
-* 使用本脚本需要你拥有 Linux 基础及使用经验，了解计算机网络部分知识，计算机基础操作
-* 目前支持Debian 9+ / Ubuntu 18.04+ / Centos7+ ，部分Centos模板可能存在难以处理的编译问题，建议遇到编译问题时，请更换至其他系统模板
-* 群主仅提供极其有限的支持，如有问题可以询问群友
-* 每周日的凌晨3点，Nginx 会自动重启以配合证书的签发定时任务进行，在此期间，节点无法正常连接，预计持续时间为若干秒至两分钟
+### Caution
+* If you don't know the exact meaning of the settings in the script, use the default values provided by the script except for the domain name
+* To use this script, you need to have basic Linux experience, knowledge of computer networking, and basic computer operation.
+* Currently, Debian 9+ / Ubuntu 18.04+ / Centos7+ is supported. Some Centos templates may have compilation problems that are difficult to handle, so it is recommended that you change to another system template when you encounter compilation problems.
+* The group owner only provides extremely limited support, so ask your friends if you have any questions.
+* Every Sunday at 3:00 am, Nginx will automatically restart to match the certificate issuance timing task, during which the node cannot connect normally.
 
-### 更新日志
-> 更新内容请查看 CHANGELOG.md
+### Update log
+> For updates, see CHANGELOG.md
 
-### 鸣谢
-* ~~本脚本的另一个分支版本（Use Host）地址： https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey 请根据需求进行选择~~ 该作者可能已停止维护
-* 本脚本中 MTProxy-go TLS 版本项目引用 https://github.com/whunt1/onekeymakemtg 在此感谢 whunt1
-* 本脚本中 锐速4合1脚本原项目引用 https://www.94ish.me/1635.html 在此感谢
-* 本脚本中 锐速4合1脚本修改版项目引用 https://github.com/ylx2016/Linux-NetSpeed 在此感谢 ylx2016
+### Acknowledgements
+* ~~ Another branch version of this script (Use Host) is available at: https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey Please choose according to your needs ~~ This author may have stopped maintaining
+* MTProxy-go TLS version project references https://github.com/whunt1/onekeymakemtg in this script Thanks to whunt1
+* The original Razor 4 in 1 script is referenced in this script https://www.94ish.me/1635.html Thanks
+* The modified version of the Razor 4 in 1 script in this script is referenced at https://github.com/ylx2016/Linux-NetSpeed Thanks to ylx2016
 
-### 证书
-> 如果你已经拥有了你所使用域名的证书文件，可以将 crt 和 key 文件命名为 v2ray.crt v2ray.key 放在 /data 目录下（若目录不存在请先建目录），请注意证书文件权限及证书有效期，自定义证书有效期过期后请自行续签
+### Certificate
+> If you already have the certificate file of the domain you are using, you can put the crt and key file named v2ray.crt v2ray.key in /data directory (if the directory does not exist, please create a directory first), please pay attention to the certificate file permission and certificate expiration date, please renew the certificate by yourself after the custom certificate expiration date
 
-脚本支持自动生成 let's encrypted 证书，有效期3个月，理论上自动生成的证书支持自动续签
+The script supports automatic generation of Let's Encrypt certificate, valid for 3 months, theoretically the automatically generated certificate supports automatic renewal
 
-### 查看客户端配置
+### View client configuration
 `cat ~/v2ray_info.txt`
 
-### V2ray 简介
+### V2ray Introduction
 
-* V2Ray是一个优秀的开源网络代理工具，可以帮助你畅爽体验互联网，目前已经全平台支持Windows、Mac、Android、IOS、Linux等操作系统的使用。
-* 本脚本为一键完全配置脚本，在所有流程正常运行完毕后，直接按照输出结果设置客户端即可使用
-* 请注意：我们依然强烈建议你全方面的了解整个程序的工作流程及原理
+* V2Ray is an excellent open source web proxy tool that can help you experience the Internet smoothly, and currently has full platform support for Windows, Mac, Android, IOS, Linux and other operating systems.
+* This script is a one-click fully configured script, after all processes are run normally, directly set up the client according to the output results and you can use it!
+* Please note: We still strongly recommend you to understand the entire program workflow and principle
 
-### 建议单服务器仅搭建单个代理
-* 本脚本默认安装最新版本的V2ray core
-* V2ray core 目前最新版本为 4.22.1（同时请注意客户端 core 的同步更新，需要保证客户端内核版本 >= 服务端内核版本）
-* 建议使用默认的443端口作为连接端口
-* 伪装内容可自行替换。
+### It is recommended to set up only a single proxy for a single server
+* This script installs the latest version of V2ray core by default
+* The latest version of V2ray core is 4.22.1 (please also pay attention to the synchronization of client-side core updates, you need to ensure that the client-side kernel version >= server-side kernel version)
+* It is recommended to use the default port 443 as the connection port
+* You can replace the fake content by yourself.
 
-### 注意事项
-* 推荐在纯净环境下使用本脚本，如果你是新手，请不要使用Centos系统。
-* 在尝试本脚本确实可用之前，请不要将本程序应用于生产环境中。
-* 该程序依赖 Nginx 实现相关功能，请使用 [LNMP](https://lnmp.org) 或其他类似携带 Nginx 脚本安装过 Nginx 的用户特别留意，使用本脚本可能会导致无法预知的错误（未测试，若存在，后续版本可能会处理本问题）。
-* V2Ray 的部分功能依赖于系统时间，请确保您使用V2RAY程序的系统 UTC 时间误差在三分钟之内，时区无关。
-* 本 bash 依赖于 [V2ray 官方安装脚本](https://install.direct/go.sh) 及 [acme.sh](https://github.com/Neilpang/acme.sh) 工作。
-* Centos 系统用户请预先在防火墙中放行程序相关端口（默认：80，443）
+### Caution
+* It's is recommending to use this script in pure environment, if you are new to CentOs, please do not use CentOs system.
+* Do not use this program in a production environment until you have tried this script and it does work.
+* This program relies on Nginx for its functionality. Please pay special attention to users who have installed Nginx using [LNMP](https://lnmp.org) or other similar scripts that carry Nginx, as using this script may result in unpredictable errors (not tested, if it exists, this issue may be addressed in subsequent releases).
+* Some of V2Ray's features depend on system time. Please make sure that the system UTC time error for your V2RAY application is within three minutes, regardless of time zone.
+* This bash relies on [V2ray official installation script](https://install.direct/go.sh) and [acme.sh](https://github.com/Neilpang/acme.sh) to work.
+* Centos system users should release the program-related ports (default: 80, 443) in the firewall in advance
 
 
-### 启动方式
+### Startup method
 
-启动 V2ray：`systemctl start v2ray`
+Start V2ray: `systemctl start v2ray`
 
-停止 V2ray：`systemctl stop v2ray`
+Stop V2ray: `systemctl stop v2ray`
 
-启动 Nginx：`systemctl start nginx`
+Start Nginx: `systemctl start nginx`
 
-停止 Nginx：`systemctl stop nginx`
+Stop Nginx: `systemctl stop nginx`
 
-### 相关目录
+### Related directories
 
-Web 目录：`/home/wwwroot/3DCEList`
+Web directory: `/home/wwwroot/3DCEList`
 
-V2ray 服务端配置：`/etc/v2ray/config.json`
+V2ray server-side configuration: `/etc/v2ray/config.json`
 
-V2ray 客户端配置: `~/v2ray_info.inf`
+V2ray client-side configuration: `~/v2ray_info.inf`
 
-Nginx 目录： `/etc/nginx`
+Nginx directory: `/etc/nginx`
 
-证书文件: `/data/v2ray.key 和 /data/v2ray.crt` 请注意证书权限设置
+Certificate files: `/data/v2ray.key and /data/v2ray.crt` Please note the certificate permission settings
 
-### 捐赠
+### Support (wulabing)
 
-您可以使用我的 搬瓦工 AFF 购买 VPS
+You can use my Movers AFF to buy VPS
 
 https://bandwagonhost.com/aff.php?aff=63939
 
-您可以使用我的 justmysocks AFF 购买搬瓦工提供的代理
+You can use my justmysocks AFF to purchase a proxy provided by Movers and shakers
 
 https://justmysocks.net/members/aff.php?aff=17621
 
 
 
+
+
+*** Translated with www.DeepL.com/Translator (free version) ***
 
