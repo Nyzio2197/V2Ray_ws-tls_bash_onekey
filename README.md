@@ -20,12 +20,12 @@ If you do not want to reinstall, you can force compatibility with the MD5 authen
 ### Installation/update method (h2 and ws versions are merged)
 Vmess+websocket+TLS+Nginx+Website
 ```
-wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/nyzio2197/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
 ```
 
 VLESS+websocket+TLS+Nginx+Website
 ```
-wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/dev/install.sh" && chmod +x install.sh && bash install.sh
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/nyzio2197/V2Ray_ws-tls_bash_onekey/dev/install.sh" && chmod +x install.sh && bash install.sh
 ```
 
 ### Caution
