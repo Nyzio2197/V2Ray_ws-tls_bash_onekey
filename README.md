@@ -104,10 +104,3 @@ https://bandwagonhost.com/aff.php?aff=63939
 You can use my justmysocks AFF to purchase a proxy provided by Movers and shakers
 
 https://justmysocks.net/members/aff.php?aff=17621
-
-
-
-
-
-*** Translated with www.DeepL.com/Translator (free version) ***
-
